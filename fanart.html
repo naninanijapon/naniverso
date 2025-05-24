@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naniverso - Fan Art</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-matrix-dark text-neon-blue">
+    <header class="container mx-auto pt-12 pb-4 px-4 text-center relative z-10">
+        <h1 class="text-4xl sm:text-5xl font-bold glow-blue">Galería de Fan Art</h1>
+        <p class="mt-2 text-lg neon-sub-blue">Gracias por todo vuestro increíble arte.</p>
+    </header>
+
+    <nav class="container mx-auto py-4 px-4 text-center relative z-10 nav-matrix">
+        <a href="index.html" class="neon-link">Inicio</a>
+        <a href="#" class="neon-link pending">Sobre el Canal</a>
+        <a href="miembros.html" class="neon-link">Miembros</a>
+        <a href="guidelines.html" class="neon-link">Directrices</a>
+        <a href="fanart.html" class="neon-link active">Fan Art</a>
+        <a href="#" class="neon-link pending">Contacto</a>
+        <a href="#" class="neon-link pending">Enlaces</a>
+    </nav>
+
+    <main class="container mx-auto py-12 px-4 relative z-10">
+        <div class="card-matrix mb-12">
+            <h2 class="section-title glow-yellow text-center mb-4">¿Cómo enviar tu Fan Art?</h2>
+            <div class="text-center max-w-2xl mx-auto">
+                <p class="mb-4">¡Publica tu increíble arte en X (Twitter) o Instagram con el hashtag <span class="font-bold glow-green">#Naninanijapon</span> para que podamos encontrarlo! Las obras seleccionadas se mostrarán con orgullo aquí en la galería oficial.</p>
+                <div class="rules-box">
+                    <h3 class="font-bold neon-sub-yellow mb-2">Reglas importantes:</h3>
+                    <ul class="text-sm">
+                        <li>El contenido para adultos (R-18) está prohibido.</li>
+                        <li>El arte generado por IA no está permitido.</li>
+                        <li>El contenido violento o explícito está prohibido.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="fanart-gallery" class="fanart-gallery">
+            </div>
+
+        <div class="text-center mt-12">
+            <button id="load-more-btn" class="load-more-btn">Cargar Más</button>
+        </div>
+    </main>
+
+    <footer class="container mx-auto py-6 px-4 text-center text-gray-500 text-xs relative z-10">
+        © 2025 Naniverso - Naninani Japón. Todos los derechos reservados.
+    </footer>
+    
+    <script src="fanart-data.js"></script>
+    <script src="fanart-script.js"></script>
+</body>
+</html>
