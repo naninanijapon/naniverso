@@ -8,8 +8,8 @@
 
 const fanArtData = [
   {
-    image: "https://placehold.co/600x800/0d0221/ade8f4?text=Arte+1",
-    artist: "@Artista_Uno"
+    image: "ivan01.png",
+    artist: "@IVAN"
   },
   {
     image: "https://placehold.co/600x600/0d0221/ade8f4?text=Arte+2",
