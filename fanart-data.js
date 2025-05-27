@@ -7,25 +7,54 @@
 */
 
 const fanArtData = [
+  // 下のファイルから順番に記述
   {
-    image: "ivan01.png",
-    artist: "@IVAN"
+    image: "GrzjAEFWYAAW-c2.jpeg",
+    artist: "@GrzjAEFWYAAW-c2"
   },
   {
-    image: "https://placehold.co/600x600/0d0221/ade8f4?text=Arte+2",
-    artist: "@Artista_Dos"
+    image: "ivanvaldez1589MKL=00.png",
+    artist: "@ivanvaldez1589MKL"
   },
   {
-    image: "https://placehold.co/800x600/0d0221/ade8f4?text=Arte+3",
-    artist: "@Artista_Tres"
+    image: "MetalSulfurStudios.png",
+    artist: "@MetalSulfurStudios"
   },
   {
-    image: "https://placehold.co/600x900/0d0221/ade8f4?text=Arte+4",
-    artist: "@Artista_Cuatro"
+    image: "KATT_Anongaka.png",
+    artist: "@KATT_Anongaka"
   },
   {
-    image: "https://placehold.co/700x600/0d0221/ade8f4?text=Arte+5",
-    artist: "@Artista_Cinco"
+    image: "ivanvaldez1589=01.png",
+    artist: "@ivanvaldez1589"
+  },
+  {
+    image: "Daro_oficial.png",
+    artist: "@Daro_oficial"
+  },
+  {
+    image: "ajstudios6756.png",
+    artist: "@ajstudios6756"
+  },
+  {
+    image: "JoshuaGonzalez-Otaku18_587.png",
+    artist: "@JoshuaGonzalez-Otaku18_587"
+  },
+  {
+    image: "ivanvaldez1589=03.png",
+    artist: "@ivanvaldez1589"
+  },
+  {
+    image: "@_N4hkz_.jpeg",
+    artist: "@_N4hkz_"
+  },
+  {
+    image: "ZarateLX.jpeg",
+    artist: "@ZarateLX"
+  },
+  {
+    image: "Hans_Eler.jpeg",
+    artist: "@Hans_Eler"
   },
   // ここに新しいファンアートを追加
 ];
