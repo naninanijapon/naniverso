@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const loadMoreBtn = document.getElementById('load-more-btn');
     
     // --- Sound Elements ---
-    const fanartClickSound = document.getElementById('sound-fanart-click'); // ✨IDを変更✨
+    const fanartClickSound = document.getElementById('sound-gallery'); // ✨IDを変更✨
     const loadSound = document.getElementById('sound-load');
     
     // --- Lightbox Elements ---
