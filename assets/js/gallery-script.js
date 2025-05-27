@@ -25,22 +25,22 @@ document.addEventListener('DOMContentLoaded', function() {
     let itemsLoaded = 0;
 
     function openLightbox(imageUrl) {
-        // アニメーションが開始する前に画像をセット
-        lightboxImg.src = imageUrl; 
-        lightbox.classList.add('active');
+        // ✨変更点：画像ソースを先にセットし、CSSクラスで表示を制御する
+        lightboxImg.src = imageUrl; // まず画像ソースを設定
+        lightbox.classList.add('active'); // activeクラスを追加して表示開始
         
-        // ✨サウンド再生のタイミングを少し遅らせる（アニメーションと合わせる）✨
-        // アニメーションの開始がCSSで制御されているため、
-        // ここでの遅延はアニメーションの主要な部分と同期させる意図
+        // アニメーションの主要部分でサウンドが鳴るように調整
+        // （アニメーションがCSSで完結しているため、サウンドのタイミングは固定遅延で試す）
         setTimeout(() => {
             if (fanartClickSound) playSound(fanartClickSound);
-        }, 200); // 0.2秒後くらいに再生 (digitalOpenEffectのアニメーション時間に合わせて調整)
+        }, 200); 
     }
 
     function closeLightbox() {
         lightbox.classList.remove('active');
-        // アニメーションがリセットされるように、一時的に画像をクリアすることも検討できます
-        // lightboxImg.src = ""; 
+        // ✨変更点：アニメーション後に画像をクリアするとちらつく場合があるので、
+        // lightboxが非表示になった後にsrcをクリアするか、またはクリアしない。今回はクリアしないでおく。
+        // lightboxImg.src = ""; // 画像のチラつき防止のため、一旦コメントアウト
     }
 
     function createFanArtCard(art) {
