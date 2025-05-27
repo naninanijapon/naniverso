@@ -1,9 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
 
 body {
+    /* --- Webサイト全体として使用する場合の基本スタイル --- */
     font-family: 'Roboto Mono', monospace;
     line-height: 1.6;
     overflow-x: hidden;
+    /* ↓↓↓ 特定の要素（例：neon-text）を画面中央に表示するデモ用のスタイルです。サイト全体で使う場合はこちらをコメントアウトしてください。*/
+    /*
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: #000;
+    overflow: hidden;
+    */
 }
 
 .container {
@@ -73,8 +84,8 @@ body {
 @keyframes zoomIn { from {transform: scale(0.8);} to {transform: scale(1);} }
 .artist-name-mobile { display: none; text-align: center; padding: 0.5rem; font-size: 0.8rem; font-weight: bold; color: #ade8f4; }
 @media (max-width: 767px) {
-  .gallery-item .overlay { display: none; }
-  .artist-name-mobile.glow-green { display: block; }
+    .gallery-item .overlay { display: none; }
+    .artist-name-mobile.glow-green { display: block; }
 }
 
 /* --- ✨ Text Link Styles (Updated for Fan Art Page) ✨ --- */
@@ -214,5 +225,21 @@ body {
         clip-path: polygon(0 30%, 100% 30%, 100% 50%, 0 50%);
         transform: translate(-2px, 1px);
         opacity: 0.6;
+    }
+}
+
+.neon-text {
+    font-size: 4rem;
+    color: #fff;
+    text-shadow: 0 0 5px #ff005e, 0 0 10px #ff005e, 0 0 20px #ff005e, 0 0 40px #ff005e, 0 0 80px #ff005e;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #ff005e, 0 0 10px #ff005e, 0 0 20px #ff005e, 0 0 40px #ff005e, 0 0 80px #ff005e;
+    }
+    100% {
+        text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 40px #00d4ff, 0 0 80px #00d4ff, 0 0 160px #00d4ff;
     }
 }
