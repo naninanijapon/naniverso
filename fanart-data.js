@@ -41,10 +41,6 @@ const fanArtData = [
     artist: "@Hans_Eler"
   },
   {
-    image: "assets/fanart/GrzjAEFWYAAW-c2.jpeg",
-    artist: "@GrzjAEFWYAAW-c2"
-  },
-  {
     image: "assets/fanart/Daro_oficial.png",
     artist: "@Daro_oficial"
   },
