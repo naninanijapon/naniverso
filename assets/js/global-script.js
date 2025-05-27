@@ -1,43 +1,26 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const uiSound = document.getElementById('sound-ui');
+    const uiSound = document.getElementById('sound-ui'); // SNSアイコン用に残します
     
+    // sound-ui要素が見つかるかどうかの確認ログ
     if (!uiSound) {
         console.error("Audio element with ID 'sound-ui' NOT FOUND!");
-        return;
+        // return; // SNS用に残すため、ここでは処理を止めません
     } else {
-        console.log("Audio element 'sound-ui' found.");
+        console.log("Audio element 'sound-ui' found for potential use by other elements.");
     }
 
-    function playSoundAndNavigate(soundElement, href, isPending) {
-        if (soundElement && soundElement.play) {
+    // 再利用可能なサウンド再生関数 (他の要素で使う可能性があるので残します)
+    function playSound(soundElement, elementName) {
+        if (soundElement && typeof soundElement.play === 'function') {
             soundElement.volume = 0.5;
             soundElement.currentTime = 0;
-            
-            const playPromise = soundElement.play();
-
-            if (playPromise !== undefined) {
-                playPromise.then(_ => {
-                    // 音声再生が開始された（または完了した）後にページ遷移
-                    console.log("Sound played, then navigate to: " + href);
-                    if (!isPending && href && href !== "#") {
-                        setTimeout(function() { // 音が聞こえるように少し待つ
-                            window.location.href = href;
-                        }, 150); // 150ミリ秒待つ (0.15秒) - この時間は調整可能
-                    }
-                }).catch(error => {
-                    console.error("Error playing sound, but will navigate anyway: ", error);
-                    // 音声再生に失敗しても、ページ遷移は試みる
-                    if (!isPending && href && href !== "#") {
-                        window.location.href = href;
-                    }
-                });
-            }
+            soundElement.play().then(() => {
+                console.log(elementName + " sound played successfully!");
+            }).catch(e => {
+                console.error("Error playing " + elementName + " sound:", e);
+            });
         } else {
-            console.error("Sound element is invalid. Navigating directly to: " + href);
-            // サウンド要素が無効でも、ページ遷移は試みる
-            if (!isPending && href && href !== "#") {
-                window.location.href = href;
-            }
+            console.error(elementName + " sound element is invalid or missing play method.");
         }
     }
 
@@ -47,34 +30,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
     navLinks.forEach(link => {
         link.addEventListener('click', function(event) {
-            event.preventDefault(); // まずデフォルトのページ遷移を止める
             const href = link.getAttribute('href');
-            const isPending = link.classList.contains('pending');
-            console.log("Navigation link clicked. Href: " + href + ", Pending: " + isPending);
-            
-            if (isPending) {
-                // pending の場合は音だけ鳴らして遷移しない（以前のテストのため音を鳴らす）
-                if (uiSound && uiSound.play) {
-                    uiSound.currentTime = 0;
-                    uiSound.play().catch(e => console.error("Error playing pending sound:", e));
-                }
-                console.log("Pending link - navigation prevented.");
+            console.log("Navigation link clicked. Href: " + href + ", Classes: " + link.className);
+
+            // pendingクラスのリンクは何もしない（ページ遷移も止める）
+            if (link.classList.contains('pending')) {
+                event.preventDefault();
+                console.log("Pending link clicked, navigation prevented.");
+                // 音は鳴らさない
             } else {
-                playSoundAndNavigate(uiSound, href, false);
+                // 通常のリンクも音は鳴らさない
+                console.log("Normal navigation link clicked, sound NOT played.");
             }
         });
     });
 
-    // --- Social Icon Links ---
+    // --- Social Icon Links (こちらは音を残します) ---
     const socialIconLinks = document.querySelectorAll('.social-icon-link');
     console.log("Found " + socialIconLinks.length + " social icon links.");
 
     socialIconLinks.forEach(link => {
         link.addEventListener('click', function(event) {
-            event.preventDefault(); // まずデフォルトのページ遷移を止める
+            // SNSリンクの場合、新しいタブで開くことが多いので、
+            // event.preventDefault() は通常不要ですが、音を鳴らした後に遷移させる場合は必要でした。
+            // 今回は音の再生タイミングを調整しないので、デフォルトの動作に任せつつ音を鳴らします。
             const href = link.getAttribute('href');
             console.log("Social icon link clicked. Href: " + href);
-            playSoundAndNavigate(uiSound, href, false); // SNSリンクは常に遷移すると仮定
+            if (uiSound) { // uiSound が存在する場合のみ再生
+                 playSound(uiSound, "Social Icon");
+            }
         });
     });
 });
