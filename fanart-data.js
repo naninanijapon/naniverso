@@ -51,7 +51,7 @@ const fanArtData = [
   {
     image: "assets/fanart/@_N4hkz_.jpeg",
     artist: "@_N4hkz_"
-  }
+  },
   {
     image: "assets/fanart/Roman.jpg",
     artist: "@Roman"
