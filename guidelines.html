@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naniverso - Directrices</title>
+    <title>Naniverso - Directrices de la Comunidad</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6L22B6NHBS"></script>
@@ -11,15 +11,16 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+
       gtag('config', 'G-6L22B6NHBS');
     </script>
 </head>
 <body class="bg-matrix-dark text-neon-blue">
-    <canvas id="naniverso-background"></canvas>
     <header class="container mx-auto pt-12 pb-4 px-4 text-center relative z-10">
-        <h1 class="text-4xl sm:text-5xl font-bold glitch-text" data-text="Naniverso">Naniverso</h1>
+        <h1 class="text-4xl sm:text-5xl font-bold glow-blue">Naniverso</h1>
         <p class="mt-2 text-lg neon-sub-blue">Directrices de la Comunidad</p>
     </header>
+
     <nav class="container mx-auto py-4 px-4 text-center relative z-10 nav-matrix">
         <a href="index.html" class="neon-link">Inicio</a>
         <a href="#" class="neon-link pending">Sobre el Canal</a>
@@ -29,9 +30,10 @@
         <a href="#" class="neon-link pending">Contacto</a>
         <a href="#" class="neon-link pending">Enlaces</a>
     </nav>
+
     <main class="container mx-auto py-12 px-4 relative z-10">
         <section class="mb-12 card-matrix">
-            <h2 class="section-title glow-blue flex items-center justify-center mb-6 glitch-text" data-text="Prohibiciones"><span class="icon">🚫</span> Prohibiciones</h2>
+            <h2 class="section-title glow-blue flex items-center justify-center mb-6"><span class="icon">🚫</span> Prohibiciones</h2>
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="p-6 rounded-md border border-neon-blue-light glass-panel hover-glow"><h3 class="font-semibold neon-sub-blue mb-2 flex items-center"><span class="icon">😠</span> Lenguaje ofensivo</h3><p class="text-sm">Comentarios discriminatorios, discurso de odio, acoso, intimidación.</p></div>
                 <div class="p-6 rounded-md border border-neon-blue-light glass-panel hover-glow"><h3 class="font-semibold neon-sub-blue mb-2 flex items-center"><span class="icon">🔒</span> Violación de la privacidad</h3><p class="text-sm">Publicar información personal, revelar la identidad del creador.</p></div>
@@ -42,7 +44,7 @@
             </div>
         </section>
         <section class="mb-12 card-matrix">
-            <h2 class="section-title glow-green flex items-center justify-center mb-6 glitch-text" data-text="Recomendaciones"><span class="icon">✅</span> Recomendaciones</h2>
+            <h2 class="section-title glow-green flex items-center justify-center mb-6"><span class="icon">✅</span> Recomendaciones</h2>
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="p-6 rounded-md border border-neon-green-light glass-panel hover-glow-green"><h3 class="font-semibold neon-sub-green mb-2 flex items-center"><span class="icon">💬</span> Comunicación respetuosa</h3><p class="text-sm">Interactúa con los demás con cortesía y respeto.</p></div>
                 <div class="p-6 rounded-md border border-neon-green-light glass-panel hover-glow-green"><h3 class="font-semibold neon-sub-green mb-2 flex items-center"><span class="icon">💡</span> Feedback constructivo</h3><p class="text-sm">Aporta ideas y críticas de manera positiva.</p></div>
@@ -51,7 +53,7 @@
             </div>
         </section>
         <section class="card-matrix">
-            <h2 class="section-title glow-yellow flex items-center justify-center mb-6 glitch-text" data-text="Consecuencias"><span class="icon">🚨</span> Consecuencias</h2>
+            <h2 class="section-title glow-yellow flex items-center justify-center mb-6"><span class="icon">🚨</span> Consecuencias</h2>
             <div class="bg-matrix-light p-6 rounded-md border border-neon-yellow-light glass-panel">
                 <p class="text-sm mb-3"><span class="font-semibold neon-sub-yellow">Incumplir estas directrices puede resultar en:</span></p>
                 <ul class="list-disc list-inside text-sm neon-sub-yellow">
@@ -67,7 +69,11 @@
     <footer class="container mx-auto py-6 px-4 text-center text-gray-500 text-xs relative z-10">
         © 2025 Naniverso - Naninani Japón. Todos los derechos reservados.
     </footer>
+
+    <audio id="sound-ui" src="assets/audio/Digital Button Click.mp3" preload="auto"></audio>
+    <audio id="sound-load" src="assets/audio/Digital Click 3.mp3" preload="auto"></audio>
+    <audio id="sound-gallery" src="assets/audio/Digital Click 1.mp3" preload="auto"></audio>
+
     <script src="assets/js/global-script.js"></script>
-    <script src="assets/js/naniverso-background.js"></script>
 </body>
 </html>
