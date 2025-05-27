@@ -52,6 +52,10 @@ const fanArtData = [
     image: "assets/fanart/@_N4hkz_.jpeg",
     artist: "@_N4hkz_"
   }
+  {
+    image: "assets/fanart/Roman.jpg",
+    artist: "@Roman"
+  },
   // ここに新しいファンアートを追加
   // 注意：スクリーンショットには13個のファイルがありましたが、
   // 以前の指示で12個のリストだったため、12個で作成しています。
