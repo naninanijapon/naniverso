@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const closeBtn = document.querySelector('.lightbox-close-btn');
-    const fanartClickSound = document.getElementById('sound-fanart-click');
+    const fanartClickSound = document.getElementById('sound-fanart-click'); // 音声はFuturistic UI Sound 22.wav
     const loadSound = document.getElementById('sound-load');
 
     if (!gallery || !loadMoreBtn || !lightbox || !lightboxImg || !closeBtn || typeof fanArtData === 'undefined') {
@@ -25,27 +25,19 @@ document.addEventListener('DOMContentLoaded', function() {
     let itemsLoaded = 0;
 
     function openLightbox(imageUrl) {
-        // ✨変更点：画像ソースを先にセットし、CSSクラスで表示を制御する
-        lightboxImg.src = imageUrl; // まず画像ソースを設定
-        lightbox.classList.add('active'); // activeクラスを追加して表示開始
-        
-        // アニメーションの主要部分でサウンドが鳴るように調整
-        // （アニメーションがCSSで完結しているため、サウンドのタイミングは固定遅延で試す）
-        setTimeout(() => {
-            if (fanartClickSound) playSound(fanartClickSound);
-        }, 200); 
+        lightboxImg.src = imageUrl;
+        lightbox.classList.add('active'); // 単純にactiveクラスで表示
+        if (fanartClickSound) playSound(fanartClickSound); // サウンドはそのまま再生
     }
 
     function closeLightbox() {
         lightbox.classList.remove('active');
-        // ✨変更点：アニメーション後に画像をクリアするとちらつく場合があるので、
-        // lightboxが非表示になった後にsrcをクリアするか、またはクリアしない。今回はクリアしないでおく。
-        // lightboxImg.src = ""; // 画像のチラつき防止のため、一旦コメントアウト
     }
 
     function createFanArtCard(art) {
         const item = document.createElement('div');
         item.className = 'gallery-item';
+        // (img, overlay, artistNameMobile の作成は変更なし)
         const img = document.createElement('img');
         img.src = art.image;
         img.alt = `Fan art por ${art.artist}`;
@@ -59,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
         item.appendChild(img);
         item.appendChild(overlay);
         item.appendChild(artistNameMobile);
+
         item.addEventListener('click', () => {
             openLightbox(art.image); 
         });
