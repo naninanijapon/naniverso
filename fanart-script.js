@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Reverse the array to show newest first
     fanArtData.reverse();
 
-    const itemsPerPage = 9; // 1回に読み込む数を調整
+    const itemsPerPage = 9; // 1回に読み込む数
     let itemsLoaded = 0;
 
     // --- Lightbox Functions ---
@@ -40,12 +40,21 @@ document.addEventListener('DOMContentLoaded', function() {
         img.alt = `Fan art por ${art.artist}`;
         img.loading = 'lazy';
 
+        // ✨✨ここからが変更点✨✨
+        // Overlay for Desktop hover
         const overlay = document.createElement('div');
         overlay.className = 'overlay';
         overlay.innerHTML = `<p>Arte por:</p><p class="artist-name">${art.artist}</p>`;
         
+        // Artist Name for Mobile (visible below image)
+        const artistNameMobile = document.createElement('p');
+        artistNameMobile.className = 'artist-name-mobile';
+        artistNameMobile.textContent = art.artist;
+        // ✨✨変更点ここまで✨✨
+
         item.appendChild(img);
         item.appendChild(overlay);
+        item.appendChild(artistNameMobile); // Add the new element for mobile
 
         // Add click event to open lightbox
         item.addEventListener('click', () => openLightbox(art.image));
@@ -75,7 +84,6 @@ document.addEventListener('DOMContentLoaded', function() {
     loadMoreBtn.addEventListener('click', loadMoreArt);
     closeBtn.addEventListener('click', closeLightbox);
     
-    // Close lightbox when clicking on the dark background
     lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) {
             closeLightbox();
