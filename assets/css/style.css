@@ -26,8 +26,7 @@ body { font-family: 'Roboto Mono', monospace; line-height: 1.6; overflow-x: hidd
 .neon-link:hover { color: #ffffff; background-color: #48cae4; text-shadow: 0 0 5px #fff, 0 0 10px #48cae4; }
 .neon-link.active { color: #ffffff; background-color: #00b4d8; cursor: default; }
 .neon-link.pending { color: #497d86; cursor: not-allowed; opacity: 0.6; }
-.social-link { display: inline-block; padding: 0.75rem 1.5rem; border: 1px solid #48cae480; border-radius: 0.375rem; background: rgba(0, 0, 0, 0.2); color: #ade8f4; text-decoration: none; font-weight: 700; transition: all 0.3s ease-in-out; }
-.social-link:hover { color: #ffffff; background-color: #48cae4; border-color: #48cae4; transform: translateY(-5px); box-shadow: 0 0 10px #48cae4, 0 0 15px #00b4d8; }
+/* .social-link styles were removed as they are replaced by social-icon-link */
 .member-card { display: flex; flex-direction: column; align-items: center; padding: 2rem; transition: all 0.3s ease-in-out; }
 .member-card:hover { transform: translateY(-10px); box-shadow: 0 0 15px #48cae4, 0 0 30px #00b4d8; }
 .member-image-placeholder { width: 150px; height: 150px; border-radius: 50%; background-color: rgba(0, 0, 0, 0.5); border: 2px dashed #48cae480; display: flex; justify-content: center; align-items: center; color: #48cae480; font-size: 2rem; font-weight: 700; }
@@ -50,10 +49,57 @@ body { font-family: 'Roboto Mono', monospace; line-height: 1.6; overflow-x: hidd
 .lightbox-close-btn:hover, .lightbox-close-btn:focus { color: #bbb; text-decoration: none; }
 @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
 @keyframes zoomIn { from {transform: scale(0.8);} to {transform: scale(1);} }
-
-/* --- ✨ Mobile Fan Art Display Fix ✨ --- */
 .artist-name-mobile { display: none; text-align: center; padding: 0.5rem; font-size: 0.8rem; font-weight: bold; color: #ade8f4; }
 @media (max-width: 767px) {
   .gallery-item .overlay { display: none; }
-  .artist-name-mobile { display: block; }
+  .artist-name-mobile.glow-green { display: block; } /* Ensure it's block to be visible */
+}
+
+/* --- ✨ New Social Icon Link Styles ✨ --- */
+.social-icon-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px; /* アイコンボタンのサイズ */
+    height: 50px; /* アイコンボタンのサイズ */
+    border-radius: 50%; /* 丸いボタンにする */
+    background-color: rgba(13, 2, 33, 0.5); /* ベースの背景色 */
+    border: 1px solid #48cae480; /* ベースのボーダー */
+    color: #ade8f4; /* SVGアイコンのベースの色 (fill: currentColor で継承) */
+    transition: all 0.3s ease;
+}
+
+.social-svg {
+    width: 24px; /* SVGのサイズ */
+    height: 24px; /* SVGのサイズ */
+    fill: currentColor; /* 親要素の色を継承 */
+}
+
+.social-icon-link:hover,
+.social-icon-link:focus {
+    color: #ffffff; /* ホバー時のSVGの色 */
+    transform: translateY(-5px) scale(1.1);
+    /* グロウエフェクトは各アイコンのクラスで指定 */
+}
+
+/* Specific hover glows for each icon type */
+.social-icon-link.youtube:hover {
+    background-color: #FF0000; /* YouTubeの赤 */
+    border-color: #FF0000;
+    filter: drop-shadow(0 0 6px #FF0000) drop-shadow(0 0 12px #FF0000);
+}
+.social-icon-link.x-twitter:hover {
+    background-color: #48cae4; /* Naniversoの青系ネオン */
+    border-color: #48cae4;
+    filter: drop-shadow(0 0 6px #48cae4) drop-shadow(0 0 12px #00b4d8);
+}
+.social-icon-link.twitch:hover {
+    background-color: #9146FF; /* Twitchの紫 */
+    border-color: #9146FF;
+    filter: drop-shadow(0 0 6px #9146FF) drop-shadow(0 0 12px #9146FF);
+}
+.social-icon-link.instagram:hover {
+    background-color: #E4405F; /* Instagramのピンク系 */
+    border-color: #E4405F;
+    filter: drop-shadow(0 0 6px #E4405F) drop-shadow(0 0 12px #E4405F);
 }
