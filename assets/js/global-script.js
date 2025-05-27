@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     const uiSound = document.getElementById('sound-ui');
-    if (!uiSound) return;
+    if (!uiSound) {
+        console.error("UI Sound element not found!"); // エラーを見つけやすくするため
+        return;
+    }
 
     // A reusable function to play sounds
     function playSound(soundElement) {
@@ -13,14 +16,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add sound to all navigation links
     const navLinks = document.querySelectorAll('.neon-link');
     navLinks.forEach(link => {
-        link.addEventListener('click', () => {
+        // 'click'イベントはスマホのタップでも通常は機能します
+        link.addEventListener('click', (event) => {
+            // pendingクラスがついているリンク（準備中のページ）は何もしない
+            if (link.classList.contains('pending')) {
+                event.preventDefault(); // ページ遷移を止める
+            }
             playSound(uiSound);
         });
     });
 
-    // Add sound to all social links
-    const socialLinks = document.querySelectorAll('.social-link');
-    socialLinks.forEach(link => {
+    // Add sound to all social icon links (✨ここが新しい追加部分✨)
+    const socialIconLinks = document.querySelectorAll('.social-icon-link');
+    socialIconLinks.forEach(link => {
         link.addEventListener('click', () => {
             playSound(uiSound);
         });
