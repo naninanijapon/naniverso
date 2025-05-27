@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const loadMoreBtn = document.getElementById('load-more-btn');
     
     // --- Sound Elements ---
-    const gallerySound = document.getElementById('sound-gallery');
+    const fanartClickSound = document.getElementById('sound-fanart-click'); // ✨IDを変更✨
     const loadSound = document.getElementById('sound-load');
     
     // --- Lightbox Elements ---
@@ -12,13 +12,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const lightboxImg = document.getElementById('lightbox-img');
     const closeBtn = document.querySelector('.lightbox-close-btn');
 
-    if (!gallery || !loadMoreBtn || !lightbox || !lightboxImg || !closeBtn || typeof fanArtData === 'undefined') return;
+    if (!gallery || !loadMoreBtn || !lightbox || !lightboxImg || !closeBtn || typeof fanArtData === 'undefined') {
+        console.error('Essential elements for the gallery are missing!');
+        return;
+    }
 
     // Reusable play sound function
     function playSound(soundElement) {
-        if (soundElement) {
+        if (soundElement && typeof soundElement.play === 'function') {
+            soundElement.volume = 0.5; // 音量は必要に応じて調整
             soundElement.currentTime = 0;
             soundElement.play().catch(e => console.error("Error playing sound:", e));
+        } else {
+            console.error("Sound element is invalid or missing play method for:", soundElement);
         }
     }
 
@@ -52,14 +58,14 @@ document.addEventListener('DOMContentLoaded', function() {
         item.appendChild(overlay);
         item.appendChild(artistNameMobile);
         item.addEventListener('click', () => {
-            playSound(gallerySound); // Play gallery sound
+            playSound(fanartClickSound); // ✨新しいサウンド変数を参照✨
             openLightbox(art.image);
         });
         return item;
     }
 
     function loadMoreArt() {
-        playSound(loadSound); // Play load more sound
+        playSound(loadSound); 
         const fragment = document.createDocumentFragment();
         const nextItems = fanArtData.slice(itemsLoaded, itemsLoaded + itemsPerPage);
         nextItems.forEach(art => {
