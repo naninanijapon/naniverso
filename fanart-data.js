@@ -55,6 +55,10 @@ const fanArtData = [
   {
     image: "assets/fanart/Roman.jpg", // 新規追加
     artist: "@Roman"
+  },
+  {
+    image: "assets/fanart/@Natzuky03.jpeg", // 新規追加
+    artist: "@Natzuky03"
   }
   // ここに新しいファンアートを追加
 ];
