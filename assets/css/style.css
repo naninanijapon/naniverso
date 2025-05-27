@@ -93,3 +93,126 @@ body {
     text-shadow: 0 0 5px #34d399, 0 0 10px #10b981; /* グリーン系のグロウ */
     border-bottom-color: #a7f3d0; /* ホバー時の下線の色 */
 }
+/* --- ✨ Member Card Image Glitch Effect ✨ --- */
+.member-image-wrapper {
+  position: relative;
+  width: 150px; /* .member-image のサイズに合わせる */
+  height: 150px; /* .member-image のサイズに合わせる */
+  /* margin-bottom は .member-image または .member-image-placeholder が持つ想定 */
+  overflow: hidden; 
+  border-radius: 50%; /* 画像が丸いのでラッパーも合わせる */
+}
+
+/* .member-image と .member-image-placeholder は既存のスタイルを尊重 */
+.member-image-wrapper .member-image,
+.member-image-wrapper .member-image-placeholder {
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* ホバー時のスムーズな拡大のため */
+}
+
+.member-card:hover .member-image-wrapper .member-image,
+.member-card:hover .member-image-wrapper .member-image-placeholder {
+  transform: scale(1.15); /* ホバーで画像を少しリッチに拡大 */
+}
+
+.glitch-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent; /* 通常時は透明 */
+  pointer-events: none; /* 下の画像がクリックできるように */
+}
+
+.member-card:hover .glitch-layer::before,
+.member-card:hover .glitch-layer::after {
+  content: attr(data-text); /* HTMLのdata-text属性から文字を取得 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem; /* グリッチテキストのサイズ */
+  font-weight: bold;
+  opacity: 0;
+  overflow: hidden;
+  color: #ade8f4; /* ネオンブルー */
+  background: #0d0221; /* 背景色と同じ */
+  animation: glitch-anim 0.3s cubic-bezier(.25,.46,.45,.94) both infinite;
+}
+
+.member-card:hover .glitch-layer::after {
+  color: #FF00FF; /* マゼンタ系の色 */
+  background: #0d0221;
+  animation: glitch-anim-2 0.3s cubic-bezier(.25,.46,.45,.94) both infinite;
+  animation-delay: -0.15s; /* 少し遅れて開始 */
+}
+
+@keyframes glitch-anim {
+  0% {
+      clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+      transform: translate(-3px, -2px);
+      opacity: 0.3;
+  }
+  20% {
+      clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+      transform: translate(3px, 2px);
+      opacity: 0.6;
+  }
+  40% {
+      clip-path: polygon(0 20%, 100% 20%, 100% 55%, 0 55%);
+      transform: translate(-2px, 1px);
+      opacity: 0.2;
+  }
+  60% {
+      clip-path: polygon(0 70%, 100% 70%, 100% 90%, 0 90%);
+      transform: translate(2px, -1px);
+      opacity: 0.7;
+  }
+  80% {
+      clip-path: polygon(0 45%, 100% 45%, 100% 65%, 0 65%);
+      transform: translate(-3px, 0px);
+      opacity: 0.4;
+  }
+  100% {
+      clip-path: polygon(0 0, 100% 0, 100% 15%, 0 15%);
+      transform: translate(1px, 2px);
+      opacity: 0.5;
+  }
+}
+
+@keyframes glitch-anim-2 {
+  0% {
+      clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+      transform: translate(2px, 1px);
+      opacity: 0.4;
+  }
+  20% {
+      clip-path: polygon(0 0, 100% 0, 100% 25%, 0 25%);
+      transform: translate(-2px, -1px);
+      opacity: 0.7;
+  }
+  40% {
+      clip-path: polygon(0 50%, 100% 50%, 100% 70%, 0 70%);
+      transform: translate(1px, -2px);
+      opacity: 0.3;
+  }
+  60% {
+      clip-path: polygon(0 10%, 100% 10%, 100% 40%, 0 40%);
+      transform: translate(-1px, 2px);
+      opacity: 0.8;
+  }
+  80% {
+      clip-path: polygon(0 75%, 100% 75%, 100% 95%, 0 95%);
+      transform: translate(3px, -1px);
+      opacity: 0.2;
+  }
+  100% {
+      clip-path: polygon(0 30%, 100% 30%, 100% 50%, 0 50%);
+      transform: translate(-2px, 1px);
+      opacity: 0.6;
+  }
+}

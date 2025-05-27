@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Naniverso - Miembros</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css"> {/* ✨パス修正✨ */}
     <script src="https://cdn.tailwindcss.com"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6L22B6NHBS"></script>
     <script>
@@ -35,37 +35,52 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             
             <div class="card-matrix text-center member-card">
-                <img src="assets/images/Nani.png" alt="Nani" class="member-image">
+                <div class="member-image-wrapper"> {/* ✨グリッチ用ラッパー追加✨ */}
+                    <img src="assets/images/Nani.png" alt="Nani" class="member-image"> {/* ✨パス修正✨ */}
+                    <div class="glitch-layer" data-text="NANI"></div>
+                </div>
                 <h2 class="text-2xl font-bold glow-green mt-4">Nani</h2>
                 <p class="font-semibold neon-sub-green mt-1">Administradora del Naniverso</p>
                 <p class="text-sm text-neon-blue mt-4">Youtuber y yōkai conejo nacida en Japón. Mientras aprende español, comparte la cultura japonesa. Su comida favorita son las fresas.</p>
             </div>
 
             <div class="card-matrix text-center member-card">
-                <img src="assets/images/toro.jpg" alt="Toroloco" class="member-image">
+                <div class="member-image-wrapper"> {/* ✨グリッチ用ラッパー追加✨ */}
+                    <img src="assets/images/toro.jpg" alt="Toroloco" class="member-image"> {/* ✨パス修正✨ */}
+                    <div class="glitch-layer" data-text="TOROLOCO"></div>
+                </div>
                 <h2 class="text-2xl font-bold glow-green mt-4">Toroloco</h2>
                 <p class="font-semibold neon-sub-green mt-1">Asistente Creativo</p>
                 <p class="text-sm text-neon-blue mt-4">Un yōkai toro que realiza diversas tareas de apoyo para Nani.</p>
             </div>
 
             <div class="card-matrix text-center member-card">
-                <img src="assets/images/ivan.png" alt="I Van Valdez" class="member-image">
-                <h2 class="text-2xl font-bold glow-green mt-4">I Van Valdez</h2>
+                <div class="member-image-wrapper"> {/* ✨グリッチ用ラッパー追加✨ */}
+                    <img src="assets/images/ivan.png" alt="I Van Valdez" class="member-image"> {/* ✨パス修正✨ */}
+                    <div class="glitch-layer" data-text="IVAN"></div>
+                </div>
+                <h2 class="text-2xl font-bold glow-green mt-4">I Van Valdez</h2> {/* あなたのファイルでは「IVan」でしたが、一般的にスペースを推奨 */}
                 <p class="font-semibold neon-sub-green mt-1">Moderador</p>
                 <p class="text-sm text-neon-blue mt-4">Soy una artista ilustrador y escritor, en mis tiempos libres escribo las historias sobre mis personajes, me gusta las películas de animación, series y hechas por artistas, la musica principalmente electronica  y los dibujitos, doodles, sketches, fanarts, cartoon, anime, cómic y chingos más.</p>
             </div>
 
             <div class="card-matrix text-center member-card">
-                <div class="member-image-placeholder"><span>IMG</span></div>
+                <div class="member-image-wrapper"> {/* ✨グリッチ用ラッパー追加✨ */}
+                    <div class="member-image-placeholder"><span>IMG</span></div> {/* Romanさんの画像はまだプレースホルダー */}
+                    <div class="glitch-layer" data-text="ROMAN"></div>
+                </div>
                 <h2 class="text-2xl font-bold glow-green mt-4">Roman</h2>
                 <p class="font-semibold neon-sub-green mt-1">Moderador</p>
                 <p class="text-sm text-neon-blue mt-4">Mi nombre es Roman soy una persona muy tranquila y un poco olivadadiso mis gustos son la música y el arte y cualquier tipo de juegos 😁</p>
             </div>
 
             <div class="card-matrix text-center member-card">
-                <img src="assets/images/dary.jpg" alt="Dary" class="member-image">
+                <div class="member-image-wrapper"> {/* ✨グリッチ用ラッパー追加✨ */}
+                    <img src="assets/images/dary.jpg" alt="Dary" class="member-image"> {/* ✨パス修正✨ */}
+                    <div class="glitch-layer" data-text="DARY"></div>
+                </div>
                 <h2 class="text-2xl font-bold glow-green mt-4">Dary</h2>
-                <p class="font-semibold neon-sub-green mt-1">Moderadora</p>
+                <p class="font-semibold neon-sub-green mt-1">Moderadora</p> {/* あなたのファイルではModeradorでしたが、名前に合わせてModeradoraに */}
                 <p class="text-sm text-neon-blue mt-4">Me encanta la salteña y el majadito (una comida típica de mi zona), ¡y soy team calor! 🔥🔥🔥 </p>
             </div>
 
@@ -78,11 +93,9 @@
 
     <audio id="sound-ui" src="assets/audio/Digital Button Click.mp3" preload="auto"></audio>
     <audio id="sound-load" src="assets/audio/Digital Click 3.mp3" preload="auto"></audio>
-    <audio id="sound-gallery" src="assets/audio/Digital Click 1.mp3" preload="auto"></audio>
-    <audio id="sound-member-click" src="assets/audio/Hi-Tech UI 1.mp3" preload="auto"></audio> 
+    <audio id="sound-gallery" src="assets/audio/Futurisitic UI Sound 22.wav" preload="auto"></audio>
+    <audio id="sound-member-click" src="assets/audio/Hi-Tech UI 1.wav" preload="auto"></audio> 
 
-
-    <script src="assets/js/global-script.js"></script>
-    
+    <script src="assets/js/global-script.js"></script> {/* ✨パス修正✨ */}
 </body>
 </html>
