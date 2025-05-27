@@ -7,7 +7,6 @@
 */
 
 const fanArtData = [
-  // スクリーンショットのファイル名に基づき、下から順番に（古い順）
   {
     image: "assets/fanart/ZarateLX.jpeg",
     artist: "@ZarateLX"
@@ -26,20 +25,21 @@ const fanArtData = [
   },
   {
     image: "assets/fanart/ivanvaldez1589MKL=00.png",
-    artist: "@ivanvaldez1589" // "="より前
+    artist: "@ivanvaldez1589MKL" // 「=」より前
   },
   {
     image: "assets/fanart/ivanvaldez1589=03.png",
-    artist: "@ivanvaldez1589" // "="より前
+    artist: "@ivanvaldez1589" // 「=」より前
   },
   {
     image: "assets/fanart/ivanvaldez1589=01.png",
-    artist: "@ivanvaldez1589" // "="より前
+    artist: "@ivanvaldez1589" // 「=」より前
   },
   {
     image: "assets/fanart/Hans_Eler.jpeg",
     artist: "@Hans_Eler"
   },
+  // GrzjAEFWYAAW-c2.jpeg は削除
   {
     image: "assets/fanart/Daro_oficial.png",
     artist: "@Daro_oficial"
@@ -53,12 +53,8 @@ const fanArtData = [
     artist: "@_N4hkz_"
   },
   {
-    image: "assets/fanart/Roman.jpg",
+    image: "assets/fanart/Roman.jpg", // 新規追加
     artist: "@Roman"
-  },
+  }
   // ここに新しいファンアートを追加
-  // 注意：スクリーンショットには13個のファイルがありましたが、
-  // 以前の指示で12個のリストだったため、12個で作成しています。
-  // もし13個目のファイル（一番上の「@_N4hkz_.jpeg」のさらに上にあるファイル）
-  // が必要であれば、そのファイル名を教えてください。
 ];
