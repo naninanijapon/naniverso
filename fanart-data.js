@@ -1,60 +1,64 @@
 /*
   【ファンアートの追加方法】
-  1. 新しい画像ファイルを `naniverso/assets/fanart/` フォルダに置きます。 // ✨コメント修正✨
+  1. 新しい画像ファイルを `naniverso/assets/fanart/` フォルダに置きます。
   2. 下のリストに、新しいブロック {...} をコピーして追加します。
-  3. `image:` の "..." に "assets/fanart/画像ファイル名" を、 // ✨コメント修正✨
-     `artist:` の "..." に作者名（XのIDなど）を記入します。
+  3. `image:` の "..." に "assets/fanart/画像ファイル名" を、
+     `artist:` の "..." にルールに従った作者名を記入します。
 */
 
 const fanArtData = [
-  // 下のファイルから順番に記述
+  // スクリーンショットのファイル名に基づき、下から順番に（古い順）
   {
-    image: "assets/fanart/GrzjAEFWYAAW-c2.jpeg", // ✨パス修正✨
-    artist: "@GrzjAEFWYAAW-c2"
-  },
-  {
-    image: "assets/fanart/ivanvaldez1589MKL=00.png", // ✨パス修正✨
-    artist: "@ivanvaldez1589MKL"
-  },
-  {
-    image: "assets/fanart/MetalSulfurStudios.png", // ✨パス修正✨
-    artist: "@MetalSulfurStudios"
-  },
-  {
-    image: "assets/fanart/KATT_Anongaka.png", // ✨パス修正✨
-    artist: "@KATT_Anongaka"
-  },
-  {
-    image: "assets/fanart/ivanvaldez1589=01.png", // ✨パス修正✨
-    artist: "@ivanvaldez1589"
-  },
-  {
-    image: "assets/fanart/Daro_oficial.png", // ✨パス修正✨
-    artist: "@Daro_oficial"
-  },
-  {
-    image: "assets/fanart/ajstudios6756.png", // ✨パス修正✨
-    artist: "@ajstudios6756"
-  },
-  {
-    image: "assets/fanart/JoshuaGonzalez-Otaku18_587.png", // ✨パス修正✨
-    artist: "@JoshuaGonzalez-Otaku18_587"
-  },
-  {
-    image: "assets/fanart/ivanvaldez1589=03.png", // ✨パス修正✨
-    artist: "@ivanvaldez1589"
-  },
-  {
-    image: "assets/fanart/@_N4hkz_.jpeg", // ✨パス修正✨
-    artist: "@_N4hkz_"
-  },
-  {
-    image: "assets/fanart/ZarateLX.jpeg", // ✨パス修正✨
+    image: "assets/fanart/ZarateLX.jpeg",
     artist: "@ZarateLX"
   },
   {
-    image: "assets/fanart/Hans_Eler.jpeg", // ✨パス修正✨
+    image: "assets/fanart/MetalSulfurStudios.png",
+    artist: "@MetalSulfurStudios"
+  },
+  {
+    image: "assets/fanart/KATT_Anongaka.png",
+    artist: "@KATT_Anongaka"
+  },
+  {
+    image: "assets/fanart/JoshuaGonzalez-Otaku18_587.png",
+    artist: "@JoshuaGonzalez-Otaku18_587"
+  },
+  {
+    image: "assets/fanart/ivanvaldez1589MKL=00.png",
+    artist: "@ivanvaldez1589MKL" // "="より前
+  },
+  {
+    image: "assets/fanart/ivanvaldez1589=03.png",
+    artist: "@ivanvaldez1589" // "="より前
+  },
+  {
+    image: "assets/fanart/ivanvaldez1589=01.png",
+    artist: "@ivanvaldez1589" // "="より前
+  },
+  {
+    image: "assets/fanart/Hans_Eler.jpeg",
     artist: "@Hans_Eler"
   },
+  {
+    image: "assets/fanart/GrzjAEFWYAAW-c2.jpeg",
+    artist: "@GrzjAEFWYAAW-c2"
+  },
+  {
+    image: "assets/fanart/Daro_oficial.png",
+    artist: "@Daro_oficial"
+  },
+  {
+    image: "assets/fanart/ajstudios6756.png",
+    artist: "@ajstudios6756"
+  },
+  {
+    image: "assets/fanart/@_N4hkz_.jpeg",
+    artist: "@_N4hkz_"
+  }
   // ここに新しいファンアートを追加
+  // 注意：スクリーンショットには13個のファイルがありましたが、
+  // 以前の指示で12個のリストだったため、12個で作成しています。
+  // もし13個目のファイル（一番上の「@_N4hkz_.jpeg」のさらに上にあるファイル）
+  // が必要であれば、そのファイル名を教えてください。
 ];
