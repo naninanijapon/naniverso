@@ -1,13 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
     const uiSound = document.getElementById('sound-ui');
-    const memberClickSound = document.getElementById('sound-member-click'); // ✨新しいサウンド要素を取得✨
+    const memberClickSound = document.getElementById('sound-member-click');
     
     if (!uiSound) {
         console.error("Audio element with ID 'sound-ui' NOT FOUND!");
     } else {
         console.log("Audio element 'sound-ui' found.");
     }
-    if (!memberClickSound) { // ✨新しいサウンド要素の存在確認✨
+    if (!memberClickSound) {
         console.error("Audio element with ID 'sound-member-click' NOT FOUND!");
     } else {
         console.log("Audio element 'sound-member-click' found.");
@@ -15,6 +15,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function playSound(soundElement, elementName) {
         if (soundElement && typeof soundElement.play === 'function') {
+            // 音の重複再生を防ぐために、再生中の場合は一度止めてから再生
+            if (!soundElement.paused) {
+                soundElement.pause();
+                soundElement.currentTime = 0;
+            }
             soundElement.volume = 0.5;
             soundElement.currentTime = 0;
             soundElement.play().then(() => {
@@ -23,9 +28,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.error("Error playing " + elementName + " sound:", e);
             });
         } else {
-            if (soundElement) { // 要素はあるがplayメソッドがない場合
+            if (soundElement) {
                  console.error(elementName + " sound element is invalid or missing play method. Element:", soundElement);
-            } else { // 要素そのものがない場合
+            } else {
                  console.error(elementName + " sound element NOT FOUND.");
             }
         }
@@ -58,15 +63,19 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // --- ✨ Member Card Click Sound (New) ✨ ---
+    // --- ✨ Member Card Sound on Hover (Updated) ✨ ---
     const memberCards = document.querySelectorAll('.member-card');
     console.log("Found " + memberCards.length + " member cards.");
     memberCards.forEach(card => {
-        card.addEventListener('click', function() {
-            // ここではページ遷移は伴わないので、preventDefaultは不要
-            // カード自体がリンクでないことを想定
-            console.log("Member card clicked.");
-            if (memberClickSound) playSound(memberClickSound, "Member Card");
+        // マウスが乗った時のイベントリスナーに変更
+        card.addEventListener('mouseenter', function() {
+            console.log("Mouse entered member card.");
+            if (memberClickSound) playSound(memberClickSound, "Member Card Hover");
         });
+        // クリック時のサウンド再生は削除（またはコメントアウト）
+        // card.addEventListener('click', function() {
+        //     console.log("Member card clicked.");
+        //     // if (memberClickSound) playSound(memberClickSound, "Member Card"); // クリック音は鳴らさない
+        // });
     });
 });
