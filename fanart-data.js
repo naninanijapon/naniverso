@@ -26,7 +26,7 @@ const fanArtData = [
   },
   {
     image: "assets/fanart/ivanvaldez1589MKL=00.png",
-    artist: "@ivanvaldez1589MKL" // "="より前
+    artist: "@ivanvaldez1589" // "="より前
   },
   {
     image: "assets/fanart/ivanvaldez1589=03.png",
