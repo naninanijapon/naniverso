@@ -1,57 +1,61 @@
 document.addEventListener('DOMContentLoaded', function() {
     const uiSound = document.getElementById('sound-ui');
+    
+    // sound-ui要素が見つかるかどうかの確認ログ
     if (!uiSound) {
-        console.error("UI Sound element not found!");
-        return;
+        console.error("Audio element with ID 'sound-ui' NOT FOUND!");
+        return; // uiSound がなければ処理を続行しない
+    } else {
+        console.log("Audio element 'sound-ui' found.");
     }
 
-    function playSound(soundElement) {
-        if (soundElement) {
-            soundElement.currentTime = 0;
-            soundElement.play().catch(e => console.error("Error playing sound:", e));
+    // 再利用可能なサウンド再生関数
+    function playSound(soundElement, elementName) {
+        if (soundElement && soundElement.play) { // playメソッドがあるかも確認
+            soundElement.volume = 0.5; // テストのために音量を少し下げる
+            soundElement.currentTime = 0; // 音を最初から再生する
+            soundElement.play().then(() => {
+                console.log(elementName + " sound played successfully!");
+            }).catch(e => {
+                console.error("Error playing " + elementName + " sound:", e);
+            });
+        } else {
+            console.error(elementName + " sound element is invalid or missing play method.");
         }
     }
 
     // --- Navigation Links ---
-    const navLinks = document.querySelectorAll('.neon-link');
-    navLinks.forEach(link => {
-        // 'touchend' はスマホのタップ終了時に発火しやすいイベントです。
-        // 'click' も残しつつ、両方で試してみる価値があります。
-        // ただし、二重に音が鳴らないように注意が必要です。
-        // ここでは、より確実性を高めるために、touchstartで音を鳴らしてみます。
-        link.addEventListener('touchstart', function(event) {
-            //音が鳴ることを優先し、pendingの場合の遷移防止はclickイベントで行う
-            playSound(uiSound);
-        }, { passive: true }); // passive:true はスクロール性能を阻害しないためのおまじない
+    const navLinks = document.querySelectorAll('nav.nav-matrix a.neon-link');
+    console.log("Found " + navLinks.length + " navigation links."); // 見つかったリンクの数
 
+    navLinks.forEach(link => {
         link.addEventListener('click', function(event) {
-            // pendingクラスがついているリンク（準備中のページ）
+            const href = link.getAttribute('href');
+            console.log("Navigation link clicked. Href: " + href + ", Classes: " + link.className);
+
+            // pendingクラスのリンクは何もしない（ページ遷移も止める）
             if (link.classList.contains('pending')) {
-                event.preventDefault(); // ページ遷移を止める
-                // touchstartで既に音が鳴っているので、ここでは鳴らさない
+                event.preventDefault();
+                console.log("Pending link clicked, sound and navigation prevented.");
+                playSound(uiSound, "Navigation (pending)"); // pendingでも音を鳴らしてみる（テスト）
             } else {
-                // pendingでないリンクの場合、touchstartで音が鳴っていればここでは不要
-                // もしtouchstartで音が鳴らない場合やPCのために、ここで再度鳴らすことも検討できますが、
-                // まずはtouchstartでの反応を見ます。
-                // PCの場合はこのclickイベントで音が鳴ります。
-                if (!('ontouchstart' in window)) { // PC（タッチ非対応）の場合
-                    playSound(uiSound);
-                }
+                // pendingでない通常のリンク
+                playSound(uiSound, "Navigation (active/normal)");
+                // ページ遷移を妨げないように、ここでは event.preventDefault() は呼ばない
+                // ただし、音が鳴り終わる前に遷移してしまう可能性はある
             }
         });
     });
 
     // --- Social Icon Links ---
     const socialIconLinks = document.querySelectorAll('.social-icon-link');
-    socialIconLinks.forEach(link => {
-        link.addEventListener('touchstart', function() {
-            playSound(uiSound);
-        }, { passive: true });
+    console.log("Found " + socialIconLinks.length + " social icon links."); // 見つかったリンクの数
 
+    socialIconLinks.forEach(link => {
         link.addEventListener('click', function() {
-             if (!('ontouchstart' in window)) { // PC（タッチ非対応）の場合
-                playSound(uiSound);
-            }
+            const href = link.getAttribute('href');
+            console.log("Social icon link clicked. Href: " + href);
+            playSound(uiSound, "Social Icon");
         });
     });
 });
